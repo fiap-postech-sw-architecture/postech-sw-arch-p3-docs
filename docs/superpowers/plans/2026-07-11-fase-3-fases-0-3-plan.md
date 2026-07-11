@@ -46,15 +46,15 @@
 
 Padrao MADR do projeto (copiar secoes de `docs/arquitetura/adr/fase2/025-*.md`). Conteudo minimo por ADR conforme spec. Revisao canonica deep no conjunto.
 
-- [ ] **Step 1: ADR-026 — Cloud alvo AWS Academy** (restricoes LabRole/sessao 4h/budget/regioes; consequencias para Terraform e CI).
-- [ ] **Step 2: ADR-027 — API Gateway** (AWS API Gateway vs Kong; criterio: challenge + material Serverless + Academy + emulacao local SAM).
-- [ ] **Step 3: ADR-028 — Autenticacao serverless** (lambda CPF → cliente → JWT; emissor unico; compatibilidade com autenticacao do app; segredo compartilhado).
-- [ ] **Step 4: ADR-029 — Emulacao local da lambda** (pytest direto + SAM local vs RIE vs shim; criterio: zero credencial).
-- [ ] **Step 5: ADR-030 — Cluster K8s AWS** (EKS via Terraform no Academy; kind continua alvo local).
-- [ ] **Step 6: ADR-031 — Banco gerenciado** (RDS PostgreSQL; justificativa formal + ER exigidos pelo challenge; paridade local Docker).
-- [ ] **Step 7: ADR-032 — Monitoramento** (Grafana+Loki+Prometheus sobre OTel da fase 2 vs Datadog/New Relic free tier; dashboards/alertas exigidos; demo local).
-- [ ] **Step 8: ADR-033 — CI/CD multi-repo** (deploy automatico homolog/producao, branch protection, secrets Academy rotativos, gate local espelho da cota esgotada).
-- [ ] **Step 9: Revisao canonica deep nos 8; commit.**
+- [x] **Step 1: ADR-026 — Cloud alvo AWS Academy** (restricoes LabRole/sessao 4h/budget/regioes; consequencias para Terraform e CI).
+- [x] **Step 2: ADR-027 — API Gateway** (AWS API Gateway vs Kong; criterio: challenge + material Serverless + Academy + emulacao local SAM).
+- [x] **Step 3: ADR-028 — Autenticacao serverless** (lambda CPF → cliente → JWT; emissor unico; compatibilidade com autenticacao do app; segredo compartilhado).
+- [x] **Step 4: ADR-029 — Emulacao local da lambda** (pytest direto + SAM local vs RIE vs shim; criterio: zero credencial).
+- [x] **Step 5: ADR-030 — Cluster K8s AWS** (EKS via Terraform no Academy; kind continua alvo local).
+- [x] **Step 6: ADR-031 — Banco gerenciado** (RDS PostgreSQL; justificativa formal + ER exigidos pelo challenge; paridade local Docker).
+- [x] **Step 7: ADR-032 — Monitoramento** (Grafana+Loki+Prometheus sobre OTel da fase 2 vs Datadog/New Relic free tier; dashboards/alertas exigidos; demo local).
+- [x] **Step 8: ADR-033 — CI/CD multi-repo** (deploy automatico homolog/producao, branch protection, secrets Academy rotativos, gate local espelho da cota esgotada).
+- [x] **Step 9: Revisao canonica deep nos 8 (1 HIGH + 5 MEDIUM corrigidos); commit 49fd4ff.**
 
 ### Task 5: RFC-003 — Design integrado da fase 3
 
@@ -63,8 +63,8 @@ Padrao MADR do projeto (copiar secoes de `docs/arquitetura/adr/fase2/025-*.md`).
 
 ### Task 6: Encerramento das Fases 0–3
 
-- [ ] **Step 1: MEMORY.md do p3** — secao fase 3 (spec, fichamentos, gap, ADRs, RFC) + correcoes de referencias herdadas do p2.
-- [ ] **Step 2: MEMORY.md (bootstrap) nos 3 repos satelites** + README inicial de cada um (proposito, diagrama, status).
+- [x] **Step 1: MEMORY.md do p3** — secao fase 3 (spec, fichamentos, gap, ADRs, RFC) + correcoes de referencias herdadas do p2.
+- [x] **Step 2: MEMORY.md (bootstrap) nos 3 repos satelites** + README inicial de cada um (proposito, diagrama, status).
 - [ ] **Step 3: Atualizar status da spec; invocar writing-plans para o plano das fases 4–5** (implementacao em ondas: app, lambda, infra-db, infra-k8s, CI/CD, monitoramento, docs de entrega).
 
 ---
