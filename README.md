@@ -19,7 +19,7 @@ docs/
     specs/      # designs aprovados (brainstorming → spec)
     plans/      # planos de implementacao (writing-plans)
     research/   # fichamentos dos modulos da fase 3
-  runbooks/     # passo a passo operacionais (AWS Academy, deploy, refresh de credenciais)
+  runbooks/     # passo a passo operacionais (AWS Academy + refresh de credenciais, proximas etapas)
 ```
 
 Ponto de partida: [`docs/superpowers/specs/2026-07-11-fase-3-bootstrap-design.md`](docs/superpowers/specs/2026-07-11-fase-3-bootstrap-design.md).

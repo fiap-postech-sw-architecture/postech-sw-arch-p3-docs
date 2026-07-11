@@ -16,7 +16,7 @@ Fonte: transcricoes em `~/git/local/postech-bootstrap/lessons/phase3/API-Gateway
 - Apresenta o Azure API Management (APIM), servico em nuvem da Microsoft para "criacao, o gerenciamento e a exposicao de APIs", atuando como gateway central da organizacao (secao Saiba Mais).
 - Recursos destacados: Portal do Desenvolvedor, gateways distribuidos, politicas e transformacoes (seguranca, autenticacao, autorizacao, limitacao de taxa), versionamento, analytics/monitoramento, cache, suporte a OpenAPI/Swagger e integracao com Azure Functions, Logic Apps, Event Grid e Azure Active Directory.
 - Hands On 100% no portal Azure (portal.azure.com): criar recurso APIM (tier "Development" para testes), publicar uma "API de exemplo", testar com GET no proprio painel e explorar o Portal do Desenvolvedor; recomenda deletar o recurso ao final para evitar custos.
-- Beneficios enumerados: centralizacao e padronizacao, gateway de entrada, seguranca robusta, transformacao de dados e analytics/insights.
+- Beneficios enumerados: centralizacao e padronizacao, gateway de entrada, seguranca centralizada, transformacao de dados e analytics/insights.
 - Exemplo de cenario: app mobile integrando APIs de pagamento de varios fornecedores; o APIM unifica autenticacao, transformacao de dados e seguranca (figuras 1 e 2).
 - Revela que o APIM foi a ferramenta usada no caso da emissora da aula 01 ("ele foi utilizado no exemplo da aula anterior, no caso da emissora").
 

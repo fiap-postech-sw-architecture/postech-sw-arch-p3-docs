@@ -83,14 +83,8 @@ Roteiro do video (ate 15min: autenticacao CPF, pipeline, deploy automatico, APIs
 
 ## AWS Academy — passo a passo do usuario (pre-requisito da fase de deploy)
 
-Registrado tambem em runbook proprio (`postech-sw-arch-p3-docs/docs/runbooks/aws-academy-setup.md`):
+Mantido em runbook proprio para nao driftar: [aws-academy-setup.md](../../runbooks/aws-academy-setup.md) (ativacao, credenciais por sessao, refresh de secrets via `scripts/refresh-aws-secrets.sh`).
 
-1. Aceitar o convite do AWS Academy (e-mail da FIAP) e criar/entrar na conta Canvas do Academy;
-2. No curso (Learner Lab), abrir **Modules → Launch AWS Academy Learner Lab** e clicar **Start Lab** (sessao ~4h, budget do lab visivel no topo);
-3. Com o lab verde, abrir **AWS Details → AWS CLI: Show** e copiar o bloco de credenciais (`aws_access_key_id`, `aws_secret_access_key`, `aws_session_token`) para `~/.aws/credentials` no perfil `academy` — **as credenciais mudam a cada Start Lab**;
-4. Informar a regiao do lab (padrao `us-east-1`);
-5. Fornecer as credenciais ao agente (arquivo local; nunca commitadas) para: `terraform plan/apply` dos repos infra, configuracao de secrets de deploy nos repos GitHub, smoke tests na nuvem;
-6. Renovar credenciais a cada nova sessao do lab (runbook cobre o refresh).
 
 ## Riscos e pontos abertos
 
@@ -112,5 +106,5 @@ Registrado tambem em runbook proprio (`postech-sw-arch-p3-docs/docs/runbooks/aws
 2. Fichamentos, gap analysis, ADRs 026+ e RFC-003 escritos e revisados (revisao canonica, deep nos maiores);
 3. App e lambda rodando e testados localmente, cobertura > 95% cada, gate local verde (ruff, mypy, bandit, pytest);
 4. Terraform dos dois repos infra validado localmente (`terraform validate`/`fmt`);
-5. Pipelines CI/CD completos commitados nos 4 repos + branch protection ativada ao final do bootstrap;
+5. Pipelines CI/CD completos commitados nos 4 repos; branch protection ficou INVIAVEL (org free + repos privados, HTTP 403) — mitigacao registrada em adendo do ADR-033;
 6. Runbook AWS Academy + documento de proximas etapas/pendencias claros o suficiente para retomar com credenciais na mao.

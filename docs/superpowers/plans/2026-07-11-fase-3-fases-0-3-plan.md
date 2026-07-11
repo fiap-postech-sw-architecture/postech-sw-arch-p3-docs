@@ -24,7 +24,7 @@
 - [x] **Step 1: Criar os 4 repos novos na org** (`gh repo create fiap-postech-sw-architecture/postech-sw-arch-p3-{lambda,infra-k8s,infra-db,docs} --private`) — feito 2026-07-11.
 - [x] **Step 2: Corrigir remote do p3** (transferencia jbamaral → org): `git remote set-url origin git@github.com:fiap-postech-sw-architecture/postech-sw-arch-p3.git`.
 - [x] **Step 3: Bootstrap do p3-docs**: README + spec de design + runbook AWS Academy; push na main.
-- [x] **Step 4: Snapshot p2 → p3**: `git rm -rq . && git -C ../postech-sw-arch-p2 archive origin/main | tar -x -C . && git add -A && git commit` (commit com proveniencia `p2 @ de4d0c6`); push. Sem heranca de historico (decisao da spec). `infra/` (Terraform Azure da fase 2) vem no snapshot e sera removido na onda 1 da implementacao, com rastreio no gap analysis.
+- [x] **Step 4: Snapshot p2 → p3**: `git rm -rq . && git -C ../postech-sw-arch-p2 archive origin/main | tar -x -C . && git add -A && git commit` (commit com proveniencia `p2 @ de4d0c6`); push. Sem heranca de historico (decisao da spec). os subdiretorios Azure de `infra/` (azure-aks, azure-vm) vieram no snapshot e foram removidos ainda no bootstrap (commit 947fe17); `infra/` raiz (kind local) permanece — rastreio no gap analysis §4.
 - [x] **Step 5: Gate local baseline no p3**: `make check` verde (lint, lint-arch, mypy, bandit, testes) — confirmado 2026-07-11.
 
 ### Task 2: Fase 1 — Fichamentos (4 sub-agentes paralelos)
