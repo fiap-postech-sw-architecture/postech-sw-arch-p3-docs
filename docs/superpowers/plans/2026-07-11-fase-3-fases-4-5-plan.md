@@ -14,19 +14,19 @@
 
 **Repo:** p3. TDD; cobertura ≥95% mantida.
 
-- [ ] **Step 1: Metricas Prometheus na API** — middleware/instrumentacao de latencia (histograma por rota/status p50/p90/p99) + metricas de negocio: `os_criadas_total` (volume diario via increase), `os_tempo_medio_por_status` (a partir do endpoint `/metricas` existente ou gauge calculado), `integracao_falhas_total` (erros outbox/relay ja existem — reaproveitar ADR-024). Expor `/metrics` na API (hoje so o relay expoe).
-- [ ] **Step 2: Correlation id na borda** — middleware aceita `X-Request-ID` externo (gateway) em vez de sempre gerar (`src/compartilhado/interfaces/middleware.py:41`); scrub PII preservado; testes.
-- [ ] **Step 3: `OTEL_ENABLED` default on em demo** — overlays/valores de demo com OTel ligado (codigo permanece com default off; so config).
-- [ ] **Step 4: Prometheus scrape da API** + **kube-state-metrics + cAdvisor/kubelet** no `k8s/` (scrape configs); **Grafana** (deployment + dashboards JSON versionados: volume diario OS, tempo medio por status, erros de integracoes, latencia p50/p90/p99, CPU/mem por pod, NOC verde/amarelo/vermelho) ; **Loki + Promtail** (logs JSON, labels por contexto, consulta por request_id); **alertas Grafana** (CPU>80%/10min, p95>300ms/5min, erro>1%, `/api/v1/saude` fora, outbox dead>0).
-- [ ] **Step 5: `make k8s-up` local com a stack completa; smoke test de dashboards/alertas; gate verde; push.**
+- [x] **Step 1: Metricas Prometheus na API** — middleware/instrumentacao de latencia (histograma por rota/status p50/p90/p99) + metricas de negocio: `os_criadas_total` (volume diario via increase), `os_tempo_medio_por_status` (a partir do endpoint `/metricas` existente ou gauge calculado), `integracao_falhas_total` (erros outbox/relay ja existem — reaproveitar ADR-024). Expor `/metrics` na API (hoje so o relay expoe).
+- [x] **Step 2: Correlation id na borda** — middleware aceita `X-Request-ID` externo (gateway) em vez de sempre gerar (`src/compartilhado/interfaces/middleware.py:41`); scrub PII preservado; testes.
+- [x] **Step 3: `OTEL_ENABLED` default on em demo** — overlays/valores de demo com OTel ligado (codigo permanece com default off; so config).
+- [x] **Step 4: Prometheus scrape da API** + **kube-state-metrics + cAdvisor/kubelet** no `k8s/` (scrape configs); **Grafana** (deployment + dashboards JSON versionados: volume diario OS, tempo medio por status, erros de integracoes, latencia p50/p90/p99, CPU/mem por pod, NOC verde/amarelo/vermelho) ; **Loki + Promtail** (logs JSON, labels por contexto, consulta por request_id); **alertas Grafana** (CPU>80%/10min, p95>300ms/5min, erro>1%, `/api/v1/saude` fora, outbox dead>0).
+- [x] **Step 5: `make k8s-up` local com a stack completa; smoke test de dashboards/alertas; gate verde; push.**
 
 ### Onda 2: App — deploy homolog/producao e overlay EKS (ADR-030/033; RNF-025)
 
 **Repo:** p3.
 
-- [ ] **Step 1: Overlay kustomize `k8s/overlays/eks/`** (imagem por registry, Service LoadBalancer/Ingress, resources ajustados, DATABASE_URL do RDS via Secret, metrics-server ja no cluster — nao aplicar o manifest local).
-- [ ] **Step 2: Branch `homolog`** criada; `cd.yml` ganha trigger homolog (deploy homologacao) e main (producao); enquanto cota esgotada, `make cd-local` continua o espelho.
-- [ ] **Step 3: README do p3 reescrito para a fase 3** (proposito, tecnologias, diagrama proprio — reutilizar componente do RFC-003, execucao local, deploy, link Swagger; secao status/pendencias).
+- [x] **Step 1: Overlay kustomize `k8s/overlays/eks/`** (imagem por registry, Service LoadBalancer/Ingress, resources ajustados, DATABASE_URL do RDS via Secret, metrics-server ja no cluster — nao aplicar o manifest local).
+- [x] **Step 2: Branch `homolog`** criada; `cd.yml` ganha trigger homolog (deploy homologacao) e main (producao); enquanto cota esgotada, `make cd-local` continua o espelho.
+- [x] **Step 3: README do p3 reescrito para a fase 3** (proposito, tecnologias, diagrama proprio — reutilizar componente do RFC-003, execucao local, deploy, link Swagger; secao status/pendencias).
 
 ### Onda 3: Lambda — integracao com app (ADR-027/028)
 
@@ -34,7 +34,7 @@
 
 - [ ] **Step 1: Rota protegida real no gateway** — integracao HTTP_PROXY para o endpoint publico do app no EKS (URL via variavel Terraform; placeholder documentado ate o EKS existir).
 - [ ] **Step 2: Demo local integrada** — `sam local start-api` + app no kind: roteiro no README (token da lambda consumido numa rota do app validada pelo authorizer emulado).
-- [ ] **Step 3: `terraform.tfvars.example` no repo lambda** (faltou no bootstrap).
+- [x] **Step 3: `terraform.tfvars.example` no repo lambda** (faltou no bootstrap).
 
 ### Onda 4: Deploy real na AWS (BLOQUEADA: credenciais Academy)
 
@@ -48,6 +48,8 @@
 - [ ] `terraform destroy` pos-validacao (budget).
 
 ### Onda 5: Entrega (fase 5 da spec)
+
+> Nota 2026-07-11: branch protection via API bloqueada — org free + repos privados (HTTP 403 "Upgrade to GitHub Pro"); o p2 tem a MESMA limitacao desde a fase 2. Opcoes: upgrade da org para Team, tornar repos publicos na entrega, ou documentar a convencao de PR obrigatorio (fluxo canonico) como mitigacao. Branches homolog criadas nos 4 repos.
 
 - [ ] Diagrama de sequencia + componentes ja no RFC-003; conferir READMEs dos 4 repos (proposito, tecnologias, execucao, diagrama, Swagger/Postman).
 - [ ] Collection Postman/Swagger export atualizado (rotas novas via gateway).
