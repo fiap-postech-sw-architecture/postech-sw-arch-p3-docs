@@ -53,9 +53,10 @@ aws sts get-caller-identity --profile academy   # sanity
 gh secret set AWS_ACCESS_KEY_ID -R fiap-postech-sw-architecture/<repo> --body "..."
 gh secret set AWS_SECRET_ACCESS_KEY -R fiap-postech-sw-architecture/<repo> --body "..."
 gh secret set AWS_SESSION_TOKEN -R fiap-postech-sw-architecture/<repo> --body "..."
+gh secret set AWS_REGION -R fiap-postech-sw-architecture/<repo> --body "us-east-1"
 ```
 
-(um script `scripts/refresh-aws-secrets.sh` nos repos infra automatiza o loop pelos 4 repos.)
+(o script [`scripts/refresh-aws-secrets.sh`](../../scripts/refresh-aws-secrets.sh) deste repo automatiza o loop pelos 4 repos, incluindo `AWS_REGION`.)
 
 ## 6. Encerrar
 
