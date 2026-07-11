@@ -1,6 +1,6 @@
 # Fase 3 — Próximas etapas e pendências
 
-Estado consolidado após o bootstrap de 2026-07-11. Ordem recomendada de retomada.
+Estado consolidado após o bootstrap e a super-revisão de 2026-07-11 (5 repos revisados: canônico deep + ponytail + transversal; pacote de entrega escrito e revisado; todos os testes locais sem AWS verdes, incluindo full-test E2E). Ordem recomendada de retomada.
 
 ## O que já está pronto (tudo verde localmente)
 
@@ -19,7 +19,9 @@ Estado consolidado após o bootstrap de 2026-07-11. Ordem recomendada de retomad
 3. **Colaborador `soat-architecture`** nos 4 repos novos — rodar `local/postech-bootstrap/scripts/grant-access.sh` (manual, exigência da entrega).
 4. **Vídeo (≤15min) e submissão do PDF** — fase 5 do plano; depende das ondas 1-4.
 
-## Próximas etapas técnicas (plano detalhado: [fases 4-5](../superpowers/plans/2026-07-11-fase-3-fases-4-5-plan.md))
+## Próximas etapas técnicas
+
+**Ponto de entrada para retomar: [plano orquestrador](../superpowers/plans/2026-07-11-orquestrador-desbloqueio.md)** — sequencia os 3 planos de desbloqueio (AWS, cota Actions, entrega final) com gates; escrito para ser executado por um modelo simples. Plano de contexto: [fases 4-5](../superpowers/plans/2026-07-11-fase-3-fases-4-5-plan.md).
 
 1. Ondas 1-2 concluídas em 2026-07-11; da Onda 3 resta só a rota protegida real no gateway (demo local integrada já documentada no README da lambda).
 2. **Onda 4 (bloqueada por credenciais)**: applies na ordem infra-db → infra-k8s → app → lambda/gateway (adendo do ADR-033: o gateway precisa da URL do app); secrets do Actions via `scripts/refresh-aws-secrets.sh`; smoke fim-a-fim; `terraform destroy` pós-demo (budget).
