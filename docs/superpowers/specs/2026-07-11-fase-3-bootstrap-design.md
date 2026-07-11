@@ -36,7 +36,7 @@ Decisoes dadas pelo usuario no pedido; itens tecnicos em aberto ficam para ADRs 
 5. **Framework de processo: superpowers** — brainstorming → spec → plan → execucao, com revisao canonica (`postech-ai-helper/ai/canonical/code-review.md`): deep para artefatos maiores (esta spec, ADRs, RFC-003), secoes 8+9 para docs triviais. Artefatos de processo agora no repo `postech-sw-arch-p3-docs` (substitui `local/postech-bootstrap/docs/superpowers/` da fase 2).
 6. **Cobertura de testes > 95%** em todo repo com codigo (app e lambda); mesmos scans da fase 2 (bandit, pip-audit).
 7. **Push continuo autorizado** pelo usuario. Bootstrap inicial: push direto na main dos repos novos enquanto vazios; apos o bootstrap, ativar branch protection (exigencia do challenge: main protegida, PRs obrigatorios) e voltar ao fluxo branch → PR. Sem auto-merge em PRs (regra permanente do usuario).
-8. **Numeracao continua**: requisitos novos a partir de **RF-025 / RNF-024 / RN-021**; ADRs a partir de **026**; **RFC-003**. ADRs e RFC vivem no repo da aplicacao principal (`docs/arquitetura/`), como nas fases anteriores; cada repo satelite tem README com diagrama proprio (exigencia do challenge) e aponta para os ADRs do repo principal.
+8. **Numeracao continua**: requisitos novos a partir de **RF-025 / RNF-025 / RN-021** (fase 2 terminou em RF-024/RNF-024/RN-020); ADRs a partir de **026**; **RFC-003**. ADRs e RFC vivem no repo da aplicacao principal (`docs/arquitetura/`), como nas fases anteriores; cada repo satelite tem README com diagrama proprio (exigencia do challenge) e aponta para os ADRs do repo principal.
 
 ## Fases do processo (mesma ordem da fase 2)
 

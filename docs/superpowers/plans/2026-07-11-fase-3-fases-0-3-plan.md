@@ -15,7 +15,7 @@
 - Repos novos: `postech-sw-arch-p3-{lambda,infra-k8s,infra-db,docs}`
 - Material: `/Users/jbamaral/git/local/postech-bootstrap/lessons/phase3/`
 - Fichamentos (saida): `<p3-docs>/docs/superpowers/research/`
-- IDs da F2 (continuar a partir de): RF-024, RNF-023, RN-020 → novos comecam em **RF-025, RNF-024, RN-021**; ADRs em **026**; **RFC-003**
+- IDs da F2 (continuar a partir de): RF-024, RNF-024, RN-020 → novos comecam em **RF-025, RNF-025, RN-021**; ADRs em **026**; **RFC-003**
 
 ---
 
@@ -38,9 +38,9 @@
 ### Task 3: Fase 2 — Challenge copy + Gap analysis (p3)
 
 - [x] **Step 1: `docs/requisitos/fase3/desafio-tech-fase-3.md`** (copia fiel + PDF versionado) — commitado.
-- [ ] **Step 2: Levantar realidade do codigo p2** (sub-agente read-only; evidencias file:line): autenticacao/JWT atual, consulta cliente por CPF, rotas protegidas, Terraform/k8s atuais, observabilidade (OTel/Prometheus/logs), healthchecks, workflows CI, modelagem do banco/ER, cobertura.
-- [ ] **Step 3: Escrever `docs/requisitos/fase3/gap-analysis-fase-3.md`** — tabela de gaps (ID novo RF-025+/RNF-024+/RN-021+ × exigencia × estado no p2 com evidencia × acao), secoes: autenticacao via gateway+lambda × JWT proprio; segregacao 4 repos × monorepo; Terraform Azure × AWS Academy; observabilidade atual × dashboards/alertas exigidos; modelagem ER/justificativa formal do banco; destino de componentes (infra/ Azure, ui/, relay/, k8s/ local).
-- [ ] **Step 4: Revisao canonica deep; commit.**
+- [x] **Step 2: Levantar realidade do codigo p2** (sub-agente read-only; evidencias file:line): autenticacao/JWT atual, consulta cliente por CPF, rotas protegidas, Terraform/k8s atuais, observabilidade (OTel/Prometheus/logs), healthchecks, workflows CI, modelagem do banco/ER, cobertura.
+- [x] **Step 3: Escrever `docs/requisitos/fase3/gap-analysis-fase-3.md`** — tabela de gaps (ID novo RF-025+/RNF-025+/RN-021+ × exigencia × estado no p2 com evidencia × acao), secoes: autenticacao via gateway+lambda × JWT proprio; segregacao 4 repos × monorepo; Terraform Azure × AWS Academy; observabilidade atual × dashboards/alertas exigidos; modelagem ER/justificativa formal do banco; destino de componentes (infra/ Azure, ui/, relay/, k8s/ local).
+- [x] **Step 4: Revisao canonica deep (2 HIGH corrigidos: renumeracao RNF-025+, secao RNF-030 documentacao arquitetural); commit.**
 
 ### Task 4: Fase 3 — ADRs 026-033 (p3, `docs/arquitetura/adr/fase3/`)
 
