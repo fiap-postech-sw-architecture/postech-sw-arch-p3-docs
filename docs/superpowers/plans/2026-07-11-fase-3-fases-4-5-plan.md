@@ -33,7 +33,7 @@
 **Repo:** p3-lambda (+ p3 config).
 
 - [ ] **Step 1: Rota protegida real no gateway** — integracao HTTP_PROXY para o endpoint publico do app no EKS (URL via variavel Terraform; placeholder documentado ate o EKS existir).
-- [ ] **Step 2: Demo local integrada** — `sam local start-api` + app no kind: roteiro no README (token da lambda consumido numa rota do app validada pelo authorizer emulado).
+- [x] **Step 2: Demo local integrada** (roteiro no README da lambda) — `sam local start-api` + app no kind: roteiro no README (token da lambda consumido numa rota do app validada pelo authorizer emulado).
 - [x] **Step 3: `terraform.tfvars.example` no repo lambda** (faltou no bootstrap).
 
 ### Onda 4: Deploy real na AWS (BLOQUEADA: credenciais Academy)
