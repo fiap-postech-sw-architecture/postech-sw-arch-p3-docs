@@ -26,6 +26,13 @@
 - [ ] `terraform output cluster_security_group_id` → anotar SG.
 - [ ] De volta ao infra-db: acrescentar em `terraform.tfvars` `extra_security_group_ids = ["<SG>"]`; `make apply` → libera 5432 aos nodes.
 
+### Task 2.5: Imagens GHCR p3 (pré-requisito do deploy do app)
+
+As imagens `ghcr.io/fiap-postech-sw-architecture/postech-sw-arch-p3-{app,ui}` NÃO existem até a primeira publicação (verificado 2026-07-11 — o GHCR da org só tem as `p2-*`). Sem isso o overlay EKS trava no pull.
+
+- [ ] Caminho A (sem cota do Actions): usuário fornece PAT `write:packages` (**pendência humana**); `echo "<PAT>" | docker login ghcr.io -u <user> --password-stdin` (PAT só via stdin, nunca em arquivo/histórico); `docker build` + `docker push` das duas imagens com a tag do **SHA completo de 40 chars** da main (o sed do CD usa `GITHUB_SHA` completo).
+- [ ] Caminho B (com cota): rodar o Desbloqueio 2 antes — o job `image` do cd.yml publica; exige `homolog` sincronizada com a `main` no mesmo SHA.
+
 ### Task 3: Migrações + App (repo p3)
 
 - [ ] `cd ../postech-sw-arch-p3` — criar secrets de runtime no cluster (espelha o job deploy-eks do cd.yml; leia o job e execute os mesmos `kubectl create secret` com os valores reais: postgres-credentials com a DATABASE_URL, ghcr-credentials, e o secret de app com JWT_SECRET/ENCRYPTION_KEY/ADMIN_PASSWORD fortes gerados agora — `openssl rand -base64 32` cada; gravar tambem como GitHub Secrets APP_JWT_SECRET/APP_ENCRYPTION_KEY/APP_ADMIN_PASSWORD no repo p3).

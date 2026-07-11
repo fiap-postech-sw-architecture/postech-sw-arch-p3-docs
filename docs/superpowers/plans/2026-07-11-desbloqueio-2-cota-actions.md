@@ -8,7 +8,7 @@
 
 Para cada repo em `postech-sw-arch-p3 postech-sw-arch-p3-lambda postech-sw-arch-p3-infra-k8s postech-sw-arch-p3-infra-db`:
 
-- [ ] `gh workflow run ci.yml -R fiap-postech-sw-architecture/<repo> --ref main` (se o ci.yml não tiver `workflow_dispatch`, criar branch `ci/smoke-cota` com commit vazio `git commit --allow-empty` e abrir PR — o push dispara).
+- [ ] `gh workflow run ci.yml -R fiap-postech-sw-architecture/<repo> --ref main` (`workflow_dispatch` adicionado aos 4 repos em 2026-07-11; fallback: commit vazio + push).
 - [ ] `gh run list -R fiap-postech-sw-architecture/<repo> --limit 3` → aguardar conclusão (`gh run watch`).
 - [ ] Verde → próximo repo. Vermelho → `gh run view <id> --log-failed`, diagnosticar:
   - Falha de ambiente do runner (apt/setup/action version) → fix pontual no workflow, commit, re-run. São permitidos ATÉ 2 ciclos de fix por repo; mais que isso = PARE e reporte.
