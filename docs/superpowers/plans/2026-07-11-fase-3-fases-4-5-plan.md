@@ -38,7 +38,7 @@
 
 ### Onda 4: Deploy real na AWS (BLOQUEADA: credenciais Academy)
 
-**Repos:** infra-db → infra-k8s → lambda → p3 (ordem ADR-033). Pre-requisito: runbook `aws-academy-setup.md` executado pelo usuario.
+**Repos:** infra-db → infra-k8s → p3 (app) → lambda/gateway (ordem do adendo do ADR-033 — o gateway precisa da URL publica do app). Pre-requisito: runbook `aws-academy-setup.md` executado pelo usuario.
 
 - [ ] infra-db `apply`; capturar endpoint; migracoes Alembic apontando para o RDS.
 - [ ] infra-k8s `apply`; `update-kubeconfig`; confirmar LabRole/metrics-server (primeiro plan valida as hipoteses do ADR-030).
@@ -52,6 +52,7 @@
 > Nota 2026-07-11: branch protection via API bloqueada — org free + repos privados (HTTP 403 "Upgrade to GitHub Pro"); o p2 tem a MESMA limitacao desde a fase 2. Opcoes: upgrade da org para Team, tornar repos publicos na entrega, ou documentar a convencao de PR obrigatorio (fluxo canonico) como mitigacao. Branches homolog criadas nos 4 repos.
 
 - [ ] Diagrama de sequencia + componentes ja no RFC-003; conferir READMEs dos 4 repos (proposito, tecnologias, execucao, diagrama, Swagger/Postman).
+- [ ] Secao "Deploys ativos: n/a permanente" nos READMEs dos 4 repos + justificativa no PDF (AWS Academy efemero por design, destroy pos-demo — entregavel "links para os deploys ativos" do challenge respondido explicitamente).
 - [ ] Collection Postman/Swagger export atualizado (rotas novas via gateway).
 - [ ] Roteiro do video (≤15min): autenticacao CPF, pipeline, deploy automatico, APIs protegidas, dashboard ao vivo, logs/traces.
 - [ ] PDF de submissao (links 4 repos + video + docs + confirmacao soat-architecture) — skill entrega-tech-challenge.

@@ -58,7 +58,7 @@ Padrao MADR do projeto (copiar secoes de `docs/arquitetura/adr/fase2/025-*.md`).
 
 ### Task 5: RFC-003 — Design integrado da fase 3
 
-- [x] **Step 1: `docs/arquitetura/rfc/fase3/rfc-003-gateway-serverless-observabilidade.md`** — secoes: resumo/objetivos; topologia AWS (gateway, lambda, EKS, RDS, monitoramento) + topologia local espelho (kind, SAM, compose); **diagrama de componentes** (mermaid, reusavel nos READMEs); **diagrama de sequencia da autenticacao CPF→JWT→rota protegida e da abertura de OS** (exigencia do challenge); fluxo de deploy multi-repo (ordem: infra-db → infra-k8s → lambda → app); correlacao logs/traces; riscos.
+- [x] **Step 1: `docs/arquitetura/rfc/fase3/rfc-003-gateway-serverless-observabilidade.md`** — secoes: resumo/objetivos; topologia AWS (gateway, lambda, EKS, RDS, monitoramento) + topologia local espelho (kind, SAM, compose); **diagrama de componentes** (mermaid, reusavel nos READMEs); **diagrama de sequencia da autenticacao CPF→JWT→rota protegida e da abertura de OS** (exigencia do challenge); fluxo de deploy multi-repo (ordem original infra-db → infra-k8s → lambda → app; corrigida no adendo do ADR-033 para infra-db → infra-k8s → app → lambda/gateway); correlacao logs/traces; riscos.
 - [x] **Step 2: Mermaid validado (mermaid-cli); commit 62c9ff2.**
 
 ### Task 6: Encerramento das Fases 0–3

@@ -22,7 +22,7 @@ Estado consolidado após o bootstrap de 2026-07-11. Ordem recomendada de retomad
 ## Próximas etapas técnicas (plano detalhado: [fases 4-5](../superpowers/plans/2026-07-11-fase-3-fases-4-5-plan.md))
 
 1. Ondas 1-2 concluídas em 2026-07-11; da Onda 3 resta só a rota protegida real no gateway (demo local integrada já documentada no README da lambda).
-2. **Onda 4 (bloqueada por credenciais)**: applies na ordem infra-db → infra-k8s → lambda → app; secrets do Actions; smoke fim-a-fim; `terraform destroy` pós-demo (budget).
+2. **Onda 4 (bloqueada por credenciais)**: applies na ordem infra-db → infra-k8s → app → lambda/gateway (adendo do ADR-033: o gateway precisa da URL do app); secrets do Actions via `scripts/refresh-aws-secrets.sh`; smoke fim-a-fim; `terraform destroy` pós-demo (budget).
 3. **Onda 5**: branch protection nos 4 repos (BLOQUEADA: org free + repos privados — upgrade Team, repos públicos na entrega, ou documentar convenção de PR; mesma limitação existente no p2 desde a fase 2), collection, roteiro do vídeo, PDF (skill entrega-tech-challenge).
 
 ## Riscos monitorados
