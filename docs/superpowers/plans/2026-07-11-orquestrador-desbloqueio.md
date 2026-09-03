@@ -20,7 +20,7 @@
 ```
 
 1. **Desbloqueio 1** — [2026-07-11-desbloqueio-1-aws-deploy.md](2026-07-11-desbloqueio-1-aws-deploy.md). Gate G1: `curl` do gateway devolve JWT e rota protegida responde 200 com token. Falha de hipótese do Learner Lab (IAM/EKS/addon) = parar e reportar — decisão humana antes de qualquer workaround.
-2. **Desbloqueio 2** — [2026-07-11-desbloqueio-2-cota-actions.md](2026-07-11-desbloqueio-2-cota-actions.md). Gate G2: CI verde nos 4 repos + CD kind verde no p3. Pode rodar antes/depois/em paralelo ao Desbloqueio 1 (não compartilham estado), mas o vídeo (Desbloqueio 3) idealmente mostra os dois.
+2. **Desbloqueio 2** — [2026-07-11-desbloqueio-2-cota-actions.md](2026-07-11-desbloqueio-2-cota-actions.md). Gate G2: CI verde nos 4 repos + CD kind verde no p3. G2 satisfeito em 01/08/2026 (registro em 03/09/2026). Pode rodar antes/depois/em paralelo ao Desbloqueio 1 (não compartilham estado), mas o vídeo (Desbloqueio 3) idealmente mostra os dois.
 3. **Desbloqueio 3** — [2026-07-11-desbloqueio-3-entrega-final.md](2026-07-11-desbloqueio-3-entrega-final.md). Só inicia com G1 OU o fallback local decidido pelo usuário (demo em kind + SAM, prevista no roteiro), E com o documento de entrega sem placeholders além do link do vídeo.
 
 ## Regras permanentes do executor

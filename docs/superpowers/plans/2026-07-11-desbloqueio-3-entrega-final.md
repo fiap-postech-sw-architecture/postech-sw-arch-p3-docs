@@ -5,7 +5,7 @@
 ### Task 1: Colaborador e acesso (humano + agente)
 
 - [ ] Usuário roda `local/postech-bootstrap/scripts/grant-access.sh` (ou agente via gh se autorizado): `soat-architecture` como colaborador de leitura nos 4 repos + p3-docs.
-- [ ] Agente confere: `gh api repos/fiap-postech-sw-architecture/<repo>/collaborators --jq '.[].login'` contém `soat-architecture` nos 4.
+- [ ] Agente confere: `gh api repos/fiap-postech-sw-architecture/<repo>/collaborators --jq '.[].login'` contém `soat-architecture` nos 5 (em 03/09/2026: ausente em todos).
 
 ### Task 2: Collection da API (agente)
 
@@ -27,8 +27,8 @@
 
 ### Task 5: Branch protection (decisão humana registrada)
 
-- [ ] Perguntar ao usuário qual mitigação executar (adendo do ADR-033): (a) manter convenção de PR documentada (nada a fazer); (b) upgrade da org para Team → aí ativar proteção nos 4 repos via `gh api`; (c) tornar repos públicos na entrega → aí ativar proteção (grátis em público).
-- [ ] Executar a escolhida e registrar no MEMORY.md do p3.
+- [x] Perguntar ao usuário qual mitigação executar (adendo do ADR-033): (a) manter convenção de PR documentada (nada a fazer); (b) upgrade da org para Team → aí ativar proteção nos 4 repos via `gh api`; (c) tornar repos públicos na entrega → aí ativar proteção (grátis em público). **Decisão: (c), em 03/09/2026.**
+- [x] Executar a escolhida e registrar no MEMORY.md do p3: 5 repos públicos + proteção da `main` (PR obrigatório, checks) em 03/09/2026; Adendo (e) do ADR-033.
 
 ### Task 6: Submissão (humano)
 
