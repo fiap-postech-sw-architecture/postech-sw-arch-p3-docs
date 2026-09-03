@@ -2,6 +2,8 @@
 
 Estado consolidado após o bootstrap e a super-revisão de 2026-07-11 (5 repos revisados: canônico deep + ponytail + transversal; pacote de entrega escrito e revisado; todos os testes locais sem AWS verdes, incluindo full-test E2E). Ordem recomendada de retomada.
 
+> Atualização de 2026-09-03. Cota do Actions renovada em 01/08/2026 e Desbloqueio 2 executado (runs verdes nos 4 repos; CD do `p3` em `main` e `homolog`). Security do `p3` corrigido no [PR #14](https://github.com/fiap-postech-sw-architecture/postech-sw-arch-p3/pull/14) (pip removido das imagens de runtime). Os 5 repositórios são públicos e a `main` de cada um está protegida (PR obrigatório + checks), conforme o Adendo (e) do ADR-033. A lista viva de pendências, com passo a passo, é a [issue #16 do `p3`](https://github.com/fiap-postech-sw-architecture/postech-sw-arch-p3/issues/16); os planos abaixo ficam como referência histórica.
+
 ## O que já está pronto (tudo verde localmente)
 
 | Repo | Estado |
@@ -15,8 +17,8 @@ Estado consolidado após o bootstrap e a super-revisão de 2026-07-11 (5 repos r
 ## Pendências do usuário (ninguém mais consegue fazer)
 
 1. **Ativar AWS Academy** — passo a passo completo: [aws-academy-setup.md](aws-academy-setup.md). Sem isso a Onda 4 (deploy real) fica bloqueada.
-2. **Cota GitHub Actions** — aguardar renovação (pipelines já commitados nos 4 repos; validar no primeiro dia de cota).
-3. **Colaborador `soat-architecture`** nos 4 repos novos — rodar `local/postech-bootstrap/scripts/grant-access.sh` (manual, exigência da entrega).
+2. ~~**Cota GitHub Actions**~~ resolvida em 01/08/2026: [CI](https://github.com/fiap-postech-sw-architecture/postech-sw-arch-p3/actions/runs/30712167211), [Security](https://github.com/fiap-postech-sw-architecture/postech-sw-arch-p3/actions/runs/30712167219), [CD main](https://github.com/fiap-postech-sw-architecture/postech-sw-arch-p3/actions/runs/30712167204), [CD homolog](https://github.com/fiap-postech-sw-architecture/postech-sw-arch-p3/actions/runs/30713618605) e [full-test](https://github.com/fiap-postech-sw-architecture/postech-sw-arch-p3/actions/runs/30712167236) do `p3`; CI de [lambda](https://github.com/fiap-postech-sw-architecture/postech-sw-arch-p3-lambda/actions/runs/30706272676), [infra-k8s](https://github.com/fiap-postech-sw-architecture/postech-sw-arch-p3-infra-k8s/actions/runs/30706274897) e [infra-db](https://github.com/fiap-postech-sw-architecture/postech-sw-arch-p3-infra-db/actions/runs/30706273765). Repos públicos desde 03/09/2026 (minutos ilimitados).
+3. **Colaborador `soat-architecture`** nos 5 repos (em 03/09/2026 não consta em nenhum, nem no `p2`): rodar `local/postech-bootstrap/scripts/grant-access.sh` ou `gh api -X PUT repos/fiap-postech-sw-architecture/<repo>/collaborators/soat-architecture -f permission=pull` (manual, exigência da entrega; com repos públicos o acesso já existe, mas o enunciado pede a adição explícita).
 4. **Vídeo (≤15min) e submissão do PDF** — fase 5 do plano; depende das ondas 1-4.
 
 ## Próximas etapas técnicas
@@ -25,7 +27,7 @@ Estado consolidado após o bootstrap e a super-revisão de 2026-07-11 (5 repos r
 
 1. Ondas 1-2 concluídas em 2026-07-11; da Onda 3 resta só a rota protegida real no gateway (demo local integrada já documentada no README da lambda).
 2. **Onda 4 (bloqueada por credenciais)**: applies na ordem infra-db → infra-k8s → app → lambda/gateway (adendo do ADR-033: o gateway precisa da URL do app); secrets do Actions via `scripts/refresh-aws-secrets.sh`; smoke fim-a-fim; `terraform destroy` pós-demo (budget).
-3. **Onda 5**: branch protection nos 4 repos (BLOQUEADA: org free + repos privados — upgrade Team, repos públicos na entrega, ou documentar convenção de PR; mesma limitação existente no p2 desde a fase 2), collection, roteiro do vídeo, PDF (skill entrega-tech-challenge).
+3. **Onda 5**: ~~branch protection nos 4 repos~~ ATIVA desde 03/09/2026 nos 5 repos (repos públicos, opção (c) do Desbloqueio 3, Task 5); collection e roteiro do vídeo prontos; falta o vídeo, o PDF final (skill entrega-tech-challenge) e a submissão.
 
 ## Riscos monitorados
 
