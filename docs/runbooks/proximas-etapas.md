@@ -16,7 +16,7 @@ Estado consolidado após o bootstrap e a super-revisão de 2026-07-11 (5 repos r
 
 ## Pendências do usuário (ninguém mais consegue fazer)
 
-1. **Ativar AWS Academy** — passo a passo completo: [aws-academy-setup.md](aws-academy-setup.md). Sem isso a Onda 4 (deploy real) fica bloqueada.
+1. ~~**Ativar AWS Academy**~~ concluido; credenciais `default` e regiao `us-east-1` validadas. Passo a passo de renovacao e deploy: [aws-academy-setup.md](aws-academy-setup.md).
 2. ~~**Cota GitHub Actions**~~ resolvida em 01/08/2026: [CI](https://github.com/fiap-postech-sw-architecture/postech-sw-arch-p3/actions/runs/30712167211), [Security](https://github.com/fiap-postech-sw-architecture/postech-sw-arch-p3/actions/runs/30712167219), [CD main](https://github.com/fiap-postech-sw-architecture/postech-sw-arch-p3/actions/runs/30712167204), [CD homolog](https://github.com/fiap-postech-sw-architecture/postech-sw-arch-p3/actions/runs/30713618605) e [full-test](https://github.com/fiap-postech-sw-architecture/postech-sw-arch-p3/actions/runs/30712167236) do `p3`; CI de [lambda](https://github.com/fiap-postech-sw-architecture/postech-sw-arch-p3-lambda/actions/runs/30706272676), [infra-k8s](https://github.com/fiap-postech-sw-architecture/postech-sw-arch-p3-infra-k8s/actions/runs/30706274897) e [infra-db](https://github.com/fiap-postech-sw-architecture/postech-sw-arch-p3-infra-db/actions/runs/30706273765). Repos públicos desde 03/09/2026 (minutos ilimitados).
 3. **Colaborador `soat-architecture`** nos 5 repos (em 03/09/2026 não consta em nenhum, nem no `p2`): rodar `local/postech-bootstrap/scripts/grant-access.sh` ou `gh api -X PUT repos/fiap-postech-sw-architecture/<repo>/collaborators/soat-architecture -f permission=pull` (manual, exigência da entrega; com repos públicos o acesso já existe, mas o enunciado pede a adição explícita).
 4. **Vídeo (≤15min) e submissão do PDF** — fase 5 do plano; depende das ondas 1-4.
@@ -26,7 +26,7 @@ Estado consolidado após o bootstrap e a super-revisão de 2026-07-11 (5 repos r
 **Ponto de entrada para retomar: [plano orquestrador](../superpowers/plans/2026-07-11-orquestrador-desbloqueio.md)** — sequencia os 3 planos de desbloqueio (AWS, cota Actions, entrega final) com gates; escrito para ser executado por um modelo simples. Plano de contexto: [fases 4-5](../superpowers/plans/2026-07-11-fase-3-fases-4-5-plan.md).
 
 1. Ondas 1-2 concluídas em 2026-07-11; da Onda 3 resta só a rota protegida real no gateway (demo local integrada já documentada no README da lambda).
-2. **Onda 4 (bloqueada por credenciais)**: applies na ordem infra-db → infra-k8s → app → lambda/gateway (adendo do ADR-033: o gateway precisa da URL do app); secrets do Actions via `scripts/refresh-aws-secrets.sh`; smoke fim-a-fim; `terraform destroy` pós-demo (budget).
+2. **Onda 4**: applies na ordem infra-db → infra-k8s → app/NLB interno → lambda/gateway/VPC Link; o ultimo passo exige o ARN do listener TCP 8000, nao uma URL publica do app. Secrets do Actions via `scripts/refresh-aws-secrets.sh`; smoke fim-a-fim pelo endpoint HTTPS do API Gateway; `terraform destroy` na ordem inversa ao final da gravacao.
 3. **Onda 5**: ~~branch protection nos 4 repos~~ ATIVA desde 03/09/2026 nos 5 repos (repos públicos, opção (c) do Desbloqueio 3, Task 5); collection e roteiro do vídeo prontos; falta o vídeo, o PDF final (skill entrega-tech-challenge) e a submissão.
 
 ## Riscos monitorados
