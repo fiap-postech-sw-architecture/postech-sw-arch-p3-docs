@@ -8,11 +8,14 @@ Updated by AI agents at task end per `postech-ai-helper/ai/canonical/task-end-re
 
 ## Recent decisions
 
+- 2026-09-07 - Deploy automatico de producao validado pelos merges RDS → EKS → app → Lambda; runs 34177626665, 34178105568, 34178566291 e 34179043515 ficaram verdes e o smoke externo confirmou auth 200, rota protegida 200 e ausência de token 401
 - 2026-09-07 - O ciclo AWS usa credenciais `default` em `us-east-1` e segue RDS → EKS/subnets privadas → app/NLB interno → Lambda/Gateway/VPC Link; o listener TCP 8000 alimenta `TF_VAR_APP_LISTENER_ARN`, a validacao externa usa apenas o API Gateway HTTPS e a desmontagem ocorre na ordem inversa ao final da gravacao
 
 ## Discovered conventions
 
 ## Gotchas
+
+- 2026-09-07 - Repos publicos nao bastam para configurar branch protection: o token precisa de permissao `admin`; a conta `Gryog` tem apenas `write` nos cinco repos e os endpoints de protection/rulesets retornam 404
 
 ## Tech debt / TODO
 

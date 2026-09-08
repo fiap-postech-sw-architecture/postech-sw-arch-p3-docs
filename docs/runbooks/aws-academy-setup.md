@@ -1,6 +1,6 @@
 # Runbook — AWS Academy (Learner Lab): ativacao e credenciais
 
-Passo a passo do lado do usuario para habilitar a conta AWS Academy da FIAP e fornecer credenciais ao agente/pipelines. Enquanto estes passos nao forem executados, todo o trabalho de nuvem fica em modo "pronto para aplicar" (Terraform validado localmente, pipelines commitados).
+Passo a passo para habilitar a conta AWS Academy da FIAP, renovar as credenciais e executar os pipelines. O fluxo completo foi validado em `us-east-1` em 07/09/2026.
 
 ## 1. Ativar a conta (uma unica vez)
 
@@ -45,7 +45,7 @@ Passo a passo do lado do usuario para habilitar a conta AWS Academy da FIAP e fo
 Com as credenciais `default` validas:
 
 1. Validar com AWS CLI os recursos criados pelo usuario, sempre em `us-east-1`.
-2. O usuario configura os secrets de deploy nos 4 repos GitHub (`AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_SESSION_TOKEN`, `AWS_REGION`) — **precisam ser re-gravados a cada sessao do lab**. O agente orienta e valida, mas nao executa essa alteracao sem autorizacao explicita.
+2. Um operador autorizado configura os secrets de deploy nos 4 repos GitHub (`AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_SESSION_TOKEN`) — **precisam ser re-gravados a cada sessao do lab**. A regiao `us-east-1` esta fixa nos workflows.
 3. Rodar smoke tests contra os recursos criados.
 
 Nunca commitar credenciais; apenas `~/.aws/credentials` local e GitHub Secrets.
@@ -58,14 +58,13 @@ aws sts get-caller-identity   # sanity
 gh secret set AWS_ACCESS_KEY_ID -R fiap-postech-sw-architecture/<repo> --body "..."
 gh secret set AWS_SECRET_ACCESS_KEY -R fiap-postech-sw-architecture/<repo> --body "..."
 gh secret set AWS_SESSION_TOKEN -R fiap-postech-sw-architecture/<repo> --body "..."
-gh secret set AWS_REGION -R fiap-postech-sw-architecture/<repo> --body "us-east-1"
 ```
 
-(o script [`scripts/refresh-aws-secrets.sh`](../../scripts/refresh-aws-secrets.sh) deste repo automatiza o loop pelos 4 repos, incluindo `AWS_REGION`.)
+O script [`scripts/refresh-aws-secrets.sh`](../../scripts/refresh-aws-secrets.sh) automatiza o loop das credenciais pelos 4 repos.
 
 ## 6. Provisionar e validar a integracao privada
 
-As acoes de criacao, `apply`, atualizacao de secrets e `destroy` sao executadas pelo usuario. O agente fornece os comandos e valida cada etapa com AWS CLI somente leitura.
+As acoes de criacao, `apply`, atualizacao de secrets e `destroy` exigem autorizacao explicita do usuario. A validacao usa AWS CLI e `kubectl` em modo somente leitura.
 
 Ordem obrigatoria:
 
@@ -92,6 +91,13 @@ Ordem obrigatoria:
 6. Informar o ARN como `app_listener_arn` no uso local ou o usuario atualizar o GitHub Secret `TF_VAR_APP_LISTENER_ARN`.
 7. Aplicar o Terraform de Lambda/Gateway, que cria o VPC Link.
 8. Validar `POST /auth` e as rotas protegidas pelo endpoint HTTPS publico do API Gateway. O NLB permanece privado.
+
+O deploy automatico de producao foi validado em 07/09/2026 por merges na `main`, nesta ordem:
+
+- [RDS](https://github.com/fiap-postech-sw-architecture/postech-sw-arch-p3-infra-db/actions/runs/34177626665)
+- [EKS](https://github.com/fiap-postech-sw-architecture/postech-sw-arch-p3-infra-k8s/actions/runs/34178105568)
+- [aplicacao](https://github.com/fiap-postech-sw-architecture/postech-sw-arch-p3/actions/runs/34178566291)
+- [Lambda e API Gateway](https://github.com/fiap-postech-sw-architecture/postech-sw-arch-p3-lambda/actions/runs/34179043515)
 
 Ao recriar o NLB, obtenha o novo listener ARN e atualize a entrada antes de reaplicar Lambda/Gateway.
 
