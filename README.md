@@ -24,6 +24,9 @@ docs/
 
 Ponto de partida: [`docs/superpowers/specs/2026-07-11-fase-3-bootstrap-design.md`](docs/superpowers/specs/2026-07-11-fase-3-bootstrap-design.md).
 
+Operacao na AWS: [`docs/runbooks/deploy-manual-aws.md`](docs/runbooks/deploy-manual-aws.md)
+explica como renovar ou gerar os GitHub Secrets e disparar o deploy completo.
+
 ## Processo
 
 Mesmo framework das fases anteriores: superpowers (brainstorming → spec → plan → execucao) com revisao canonica de `postech-ai-helper/ai/canonical/`. Regras de agente: `postech-ai-helper/ai/agent-bootstrap.md`.
