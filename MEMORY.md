@@ -16,6 +16,7 @@ Updated by AI agents at task end per `postech-ai-helper/ai/canonical/task-end-re
 
 ## Gotchas
 
+- 2026-09-09 - A entrada de 2026-09-07 abaixo tirou a conclusao errada: a protecao da `main` ESTA ativa nos 5 repos desde 2026-09-03 (verificada com conta admin). `GET/PUT .../branches/main/protection` retornam 404 para quem tem so `write` mesmo com protecao ativa; `GET /repos/{o}/{r}/branches/main` expoe `.protected` a qualquer leitor. Convites de leitura para `soat-architecture` enviados nos 5 repos em 2026-09-09 (antes nao havia convite nem colaboracao; 'acesso confirmado' era so a visibilidade publica).
 - 2026-09-08 - Os backends Terraform atuais fixam o bucket da conta 924563550535, portanto credenciais de outra conta Academy nao bastam para o deploy; sobre RDS preservado, regenerar a chave de criptografia tambem quebra a leitura dos dados existentes
 - 2026-09-07 - Repos publicos nao bastam para configurar branch protection: o token precisa de permissao `admin`; a conta `Gryog` tem apenas `write` nos cinco repos e os endpoints de protection/rulesets retornam 404
 
