@@ -30,3 +30,7 @@ explica como renovar ou gerar os GitHub Secrets e disparar o deploy completo.
 ## Processo
 
 Mesmo framework das fases anteriores: superpowers (brainstorming → spec → plan → execucao) com revisao canonica de `postech-ai-helper/ai/canonical/`. Regras de agente: `postech-ai-helper/ai/agent-bootstrap.md`.
+
+## Governanca da `main`
+
+A `main` e protegida: so recebe mudanca por pull request, e a regra vale tambem para administradores (force-push e exclusao bloqueados). Por ser um repositorio de processo, nao tem checks obrigatorios. Politica completa, verificacao sem permissao de administrador e auditoria do historico: [Disciplina de PR](https://github.com/fiap-postech-sw-architecture/postech-sw-arch-p3/blob/main/docs/governanca/disciplina-de-pr.md).
